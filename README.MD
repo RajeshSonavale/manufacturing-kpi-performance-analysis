@@ -30,14 +30,11 @@ manufacturing_project/
 │   │   └── final_manufacturing_data.csv
 │
 ├── notebook/
-│   ├── data_cleaning.ipynb
-│   ├── eda_analysis.ipynb
-│   └── kpi_calculation.ipynb
-│
+│   ├── data_cleaning_and_EDA.ipynb
+│   
 ├── sql/
-│   ├── create_tables.sql
-│   ├── star_schema.sql
-│   └── analysis_queries.sql
+│   ├── create_star_schema_and_analysis.sql
+│   
 │
 ├── dashboard/
 │   └── manufacturing_dashboard.pbix
@@ -52,7 +49,6 @@ manufacturing_project/
 * Python (Pandas, NumPy, Matplotlib, Seaborn)
 * MySQL (Data storage & querying)
 * Power BI (Dashboard & visualization)
-* Jupyter Notebook (EDA & analysis)
 
 ---
 
