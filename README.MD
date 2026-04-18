@@ -146,8 +146,6 @@ This structure improves query performance and supports scalable BI reporting.
 
 ## 📊 Dashboard Preview
 
-![Dashboard](dashboard.png)
+![Dashboard](Projects/manufacturing_kpi_analysis/dashboard/dashboard.png)
 
 ---
-
-
