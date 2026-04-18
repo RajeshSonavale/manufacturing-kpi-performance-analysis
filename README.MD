@@ -146,6 +146,6 @@ This structure improves query performance and supports scalable BI reporting.
 
 ## 📊 Dashboard Preview
 
-![Dashboard](https://github.com/RajeshSonavale/manufacturing_kpi_analysis/blob/main/dashboard/dashboard.png)
+[![Dashboard](https://github.com/RajeshSonavale/manufacturing_kpi_analysis/blob/main/dashboard/dashboard.png)](https://github.com/RajeshSonavale/manufacturing_kpi_analysis/blob/main/dashboard/dashboard.png)
 
 ---
