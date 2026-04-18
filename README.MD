@@ -144,4 +144,10 @@ This structure improves query performance and supports scalable BI reporting.
 
 ---
 
+## 📊 Dashboard Preview
+
+![Dashboard](dashboard.png)
+
+---
+
 
