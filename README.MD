@@ -48,7 +48,7 @@ manufacturing_project/
 
 * Python (Pandas, NumPy, Matplotlib, Seaborn)
 * MySQL (Data storage & querying)
-* Power BI (Dashboard & visualization)
+* Power BI (Dashboard, Dax & visualization)
 
 ---
 
