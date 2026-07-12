@@ -64,9 +64,29 @@ Business Insights & Recommendations
 
 The interactive Power BI dashboard provides a comprehensive view of manufacturing performance through key production KPIs, machine-level analysis, downtime monitoring, and trend visualization. It enables stakeholders to quickly identify operational inefficiencies and support data-driven decision-making.
 
-### Executive Summary
+## 📊 Dashboard Preview
 
-![Executive Summary](dashboard/executive_summary.png)
+### 📈 Executive Summary
+
+Provides a high-level overview of Overall Equipment Effectiveness (OEE), Availability, Performance, Quality, production trends, and key manufacturing KPIs for december month
+
+![Executive Summary](dashboard/executive_summary_dec.png)
+
+---
+
+### 🔍 Root Cause Analysis
+
+Analyzes machine performance, downtime patterns, shift-wise productivity, and operational bottlenecks to identify the primary causes of OEE loss.
+
+![Root Cause Analysis](dashboard/root_cause_analysis.png)
+
+---
+
+### 💡 Insights & Recommendations
+
+Presents key business insights and actionable recommendations to improve equipment effectiveness, reduce downtime, and optimize production performance.
+
+![Insights & Recommendations](dashboard/insights_recommendations.png)
 
 ### Dashboard
 
