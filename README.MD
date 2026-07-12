@@ -64,6 +64,10 @@ Business Insights & Recommendations
 
 The interactive Power BI dashboard provides a comprehensive view of manufacturing performance through key production KPIs, machine-level analysis, downtime monitoring, and trend visualization. It enables stakeholders to quickly identify operational inefficiencies and support data-driven decision-making.
 
+### Executive Summary
+
+![Executive Summary](dashboard/executive_summary.png)
+
 ### Dashboard
 
 ## 📈 Key KPIs
