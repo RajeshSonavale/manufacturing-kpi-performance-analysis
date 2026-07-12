@@ -1,9 +1,3 @@
-<p align="center">
-  <img src="dashboard/banner.png" alt="Manufacturing KPI Dashboard Banner">
-</p>
-
-# 🏭 Manufacturing KPI Performance Analysis Dashboard
-
 #   Manufacturing KPI  Performance Analysis Dashboard
  
 ## 📌 Business Problem
