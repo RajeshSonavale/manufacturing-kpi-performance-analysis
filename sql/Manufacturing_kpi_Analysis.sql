@@ -1,5 +1,16 @@
-CREATE DATABASE Manufacturing_KPI_Analysis ;
+
+-- ------------------------------------------------------------------------------------------------------------------------
+# KPI Analysis and Creating Star Schema 
+-- ------------------------------------------------------------------------------------------------------------------------
+
+-- ------------------------------------------------------------------------------------------------------------------------
+# Step 1 : Create Database Manufaturing_kPI_Analysis and Use it. 
+
+CREATE DATABASE Manufacturing_KPI_Analysis ;  
 USE Manufacturing_KPI_Analysis;
+
+-- ------------------------------------------------------------------------------------------------------------------------
+# Step 2 : Create table manufactring_data and insert data in it through table data import Wizard.
 
 CREATE TABLE manufacturing_data (
     Date DATE,
@@ -24,12 +35,14 @@ CREATE TABLE manufacturing_data (
 );
 
 
-SELECT COUNT(*) FROM Manufacturing_data;
+SELECT COUNT(*) FROM Manufacturing_data; # Validate inserted data 
 
 SELECT * FROM manufacturing_data LIMIT 5;
 
-# Data Insights
+-- ------------------------------------------------------------------------------------------------------------------------
+# Step 3 :  Data Insights
 
+# 1) KPI insights 
 SELECT 
     AVG(Availability) AS avg_availability,
     AVG(Performance) AS avg_performance,
@@ -38,7 +51,7 @@ SELECT
 FROM manufacturing_data;
 
 
-# Machine Wise Analysis
+#  2) Machine Wise KPI Analysis
 SELECT 
     Machine_ID,
     AVG(Availability) AS availability,
@@ -50,16 +63,16 @@ GROUP BY Machine_ID
 ORDER BY oee DESC;
 
 
-# Root Cause Analysis
+# 3) Root Cause Analysis
 SELECT 
     Machine_ID,
-    AVG(Availability),
-    AVG(Performance),
-    AVG(Quality)
+    AVG(Availability) AS availability,
+    AVG(Performance) As performance,
+    AVG(Quality) As quality 
 FROM manufacturing_data
 GROUP BY Machine_ID;
 
-# Downtime reason analysis
+# 4) Downtime reason analysis
 SELECT 
     Downtime_Reason,
     AVG(Downtime) AS avg_downtime
@@ -67,7 +80,7 @@ FROM manufacturing_data
 GROUP BY Downtime_Reason
 ORDER BY avg_downtime DESC;
 
-# Shift Wise Performace Analysis
+# 5) Shift Wise Performace Analysis
 SELECT 
     Shift,
     AVG(OEE) AS avg_oee
@@ -75,9 +88,13 @@ FROM manufacturing_data
 GROUP BY Shift
 ORDER BY avg_oee DESC;
 
-# Creating Star Schema
+-- ------------------------------------------------------------------------------------------------------------------------
+# Step 4 : Creating Star Schema
 
-# Create Dimension Table
+# 1) Create Dimension Table
+
+# a) Create dim_machine tabel
+
 CREATE TABLE dim_machine (
     Machine_ID VARCHAR(10) PRIMARY KEY,
     Machine_Type VARCHAR(50)
@@ -89,7 +106,8 @@ INSERT INTO dim_machine VALUES
 ('M3','Low Performance Machine'),
 ('M4','Best Machine');
 
-# create Dim Shift 
+# B) Create dim_shift table
+ 
 CREATE TABLE dim_shift (
     Shift VARCHAR(5) PRIMARY KEY,
     Shift_Name VARCHAR(50)
@@ -100,7 +118,8 @@ INSERT INTO dim_shift VALUES
 ('B','Afternoon'),
 ('C','Night');
 
-# Create Dim Downtime
+# C) Create dim_downtime table 
+
 CREATE TABLE dim_downtime (
     Downtime_Reason VARCHAR(50) PRIMARY KEY,
     Category VARCHAR(50)
@@ -112,7 +131,8 @@ INSERT INTO dim_downtime VALUES
 ('Setup','Planned'),
 ('Power Failure','Unplanned');
 
-# Create Dim Location 
+# D) Create dim_location table
+ 
 CREATE TABLE dim_location (
     Plant_Location VARCHAR(50) PRIMARY KEY,
     Region VARCHAR(50)
@@ -122,7 +142,8 @@ INSERT INTO dim_location VALUES
 ('Pune','West'),
 ('Chennai','South');
 
-# Create Dim Data
+# E) Create dim_date table 
+
 CREATE TABLE dim_date (
     Date DATE PRIMARY KEY,
     Year INT,
@@ -140,7 +161,7 @@ SELECT DISTINCT
     QUARTER(Date)
 FROM manufacturing_data;
 
-# Create the Fact Table
+# 2) Create the fact_production table
 
 CREATE TABLE fact_production AS
 SELECT 
@@ -162,9 +183,9 @@ SELECT
     Quality,
     OEE
 FROM manufacturing_data;
+-- ------------------------------------------------------------------------------------------------------------------------
+# Step 5 :  Add Forgien key relationships 
 
-
-#  Add Forgien key relationships 
 ALTER TABLE fact_production
 ADD CONSTRAINT fk_machine
 FOREIGN KEY (Machine_ID)
@@ -186,7 +207,8 @@ FOREIGN KEY (Date)
 REFERENCES dim_date(Date);
 
 
-# Check join
+# Check the relationship through join the tables 
+
 SELECT 
     m.Machine_Type,
     AVG(f.OEE) AS avg_oee
