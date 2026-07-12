@@ -124,7 +124,7 @@ Manufacturing-KPI-Analysis/
 │
 ├── data/
 │   ├── raw/
-│   │   └── manufacturing_raw.csv
+│   │   └── manufacturing_data.csv
 │   └── processed/
 │       └── final_manufacturing_data.csv
 │
@@ -135,10 +135,12 @@ Manufacturing-KPI-Analysis/
 │   └── create_star_schema_and_analysis.sql
 │
 ├── dashboard/
-│   └── manufacturing_dashboard.pbix
-│
-├── images/
-│   └── dashboard_preview.png
+│   └── manufacturing_kpi_performance_analysis.pbix
+|   └── executive_summary.png
+|   └── executive_summary_dec.png
+│   └── root_casue_analysis.png
+|   └── insights_and_recommendations.png
+|
 │
 └── README.md
 ```
