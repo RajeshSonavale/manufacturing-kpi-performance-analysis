@@ -1,151 +1,124 @@
-# 🏭 Manufacturing KPI Analysis & OEE Dashboard
+#   Manufacturing KPI  Performance Analysis Dashboard
+ 
+## 📌 Business Problem
 
-## 📌 Project Overview
+Manufacturing plants generate large volumes of production data every day, but without centralized KPI monitoring, it becomes difficult to identify performance losses, understand downtime patterns, and prioritize operational improvements.
 
-This project focuses on analyzing manufacturing efficiency using key performance indicators (KPIs) such as **Availability, Performance, Quality, and Overall Equipment Effectiveness (OEE)**.
+This project addresses that challenge by analyzing production data using **Overall Equipment Effectiveness (OEE)** and its key components—**Availability, Performance, and Quality**. The solution enables stakeholders to monitor manufacturing performance, identify root causes of production losses, and support data-driven operational decision-making through interactive Power BI dashboards.
 
-The goal is to identify inefficiencies across machines, shifts, and downtime reasons, and present actionable insights through a professional Power BI dashboard.
+## 💡 Solution Overview
 
----
+Developed an end-to-end manufacturing analytics solution that transformed raw production data into actionable business insights. The solution leverages **Python** for data preprocessing and KPI calculations, **MySQL** for star schema data modeling, and **Power BI** for interactive dashboard development. It enables production teams to monitor OEE, evaluate machine and shift performance, identify downtime patterns, and support data-driven operational improvements.
 
-## 🎯 Objectives
 
-* Analyze machine performance and efficiency
-* Identify root causes of low OEE
-* Perform downtime analysis
-* Build a scalable data model using Star Schema
-* Create an interactive Power BI dashboard for decision-making
 
----
+## 🏗️ Solution Architecture
 
-## 🗂️ Project Structure
-
+```text
+Raw Manufacturing Data
+        |
+        v
+Data Cleaning, EDA & OEE Calculation (Python)
+        |
+        v
+MySQL Star Schema
+        |
+        v
+Power BI Dashboard
+        |
+        v
+Business Insights & Recommendations
 ```
-manufacturing_project/
+
+## 🛠️ Technology Stack
+
+| Technology | Purpose |
+|------------|---------|
+| **Python** | Data cleaning, preprocessing, EDA, KPI calculation |
+| **Pandas & NumPy** | Data transformation and analysis |
+| **MySQL** | Star schema data modeling and analytical queries |
+| **Power BI** | Interactive dashboards, DAX measures, and data visualization |
+| **Git & GitHub** | Version control and project documentation |
+
+## 📂 Dataset Overview
+
+| Attribute | Details |
+|-----------|---------|
+| **Dataset Size** | 5,000 production records |
+| **Time Period** | January 2024 – December 2024 |
+| **Manufacturing Plants** | Chennai, Mumbai, Pune |
+| **Machines** | M1, M2, M3, M4 |
+| **Production Shifts** | A, B, C |
+| **Key Features** | Planned Production Time, Downtime, Ideal Cycle Time, Total Production, Defective Production, Downtime Reason |
+
+## 🔄 Project Workflow
+
+1. **Data Collection** – Imported manufacturing production data and validated data quality.
+2. **Data Preparation** – Cleaned missing values, treated outliers, and created derived production metrics using Python.
+3. **KPI Calculation** – Calculated Availability, Performance, Quality, and Overall Equipment Effectiveness (OEE).
+4. **Data Modeling** – Designed a Star Schema in MySQL to support efficient analytical reporting.
+5. **Dashboard Development** – Built an interactive Power BI dashboard with DAX measures, KPI cards, trend analysis, filters, and drill-through capabilities.
+6. **Business Analysis** – Identified production losses, machine inefficiencies, downtime trends, and improvement opportunities.
+
+## 📊 Dashboard Preview
+
+The interactive Power BI dashboard provides a comprehensive view of manufacturing performance through key production KPIs, machine-level analysis, downtime monitoring, and trend visualization. It enables stakeholders to quickly identify operational inefficiencies and support data-driven decision-making.
+
+### Executive Summary
+
+![Executive Summary](dashboard/executive_summary.png)
+
+### Dashboard
+
+## 📈 Key KPIs
+
+| KPI | Value |
+|------|------:|
+| **Overall Equipment Effectiveness (OEE)** | **65.9%** |
+| **Availability** | **85.1%** |
+| **Performance** | **81.5%** |
+| **Quality** | **95.2%** |
+| **Best Performing Machine** | **M4 (75.7% OEE)** |
+| **Lowest Performing Machine** | **M3 (61.0% OEE)** |
+
+## 🔍 Key Insights
+
+- **Machine M4** achieved the highest OEE (**75.7%**), demonstrating consistently strong Availability, Performance, and Quality.
+- **Machine M3** recorded the lowest OEE (**61.0%**), primarily due to reduced performance and increased downtime.
+- **Availability (85.1%)** remained the strongest OEE component, while **Performance (81.5%)** represented the biggest opportunity for operational improvement.
+- Downtime analysis identified production interruptions as a major contributor to reduced equipment effectiveness.
+- Machine- and shift-level analysis enabled targeted identification of operational bottlenecks and performance variations.
+
+## 💼 Business Recommendations
+
+- Prioritize maintenance activities for **Machine M3** to reduce downtime and improve production performance.
+- Monitor **Performance** as the primary improvement area to increase Overall Equipment Effectiveness (OEE).
+- Standardize best operating practices observed on **Machine M4** across other production lines.
+- Implement routine KPI monitoring through Power BI dashboards to enable proactive operational decision-making.
+- Use machine- and shift-level performance analysis to support production planning and continuous process improvement.
+
+## 📁 Repository Structure
+
+```text
+Manufacturing-KPI-Analysis/
 │
 ├── data/
 │   ├── raw/
 │   │   └── manufacturing_raw.csv
-│   ├── processed/
-│   │   └── final_manufacturing_data.csv
+│   └── processed/
+│       └── final_manufacturing_data.csv
 │
-├── notebook/
-│   ├── data_cleaning_and_EDA.ipynb
-│   
+├── notebooks/
+│   └── data_cleaning_and_EDA.ipynb
+│
 ├── sql/
-│   ├── create_star_schema_and_analysis.sql
-│   
+│   └── create_star_schema_and_analysis.sql
 │
 ├── dashboard/
 │   └── manufacturing_dashboard.pbix
 │
+├── images/
+│   └── dashboard_preview.png
+│
 └── README.md
 ```
-
----
-
-## ⚙️ Tools & Technologies
-
-* Python (Pandas, NumPy, Matplotlib, Seaborn)
-* MySQL (Data storage & querying)
-* Power BI (Dashboard, Dax & visualization)
-
----
-
-## 🔄 Workflow
-
-### 1️⃣ Data Generation
-
-* Created synthetic manufacturing dataset
-* Included missing values and outliers for realism
-
----
-
-### 2️⃣ Data Cleaning & EDA
-
-* Handled missing values (mean/logic-based imputation)
-* Detected and capped outliers
-* Performed distribution and skewness analysis
-* Visualized missing values and outliers
-
----
-
-### 3️⃣ KPI Calculation
-
-**Formulas Used:**
-
-* Availability = Operating Time / Planned Production Time
-* Performance = (Ideal Cycle Time × Total Production) / Operating Time
-* Quality = Good Production / Total Production
-* OEE = Availability × Performance × Quality
-
----
-
-### 4️⃣ Data Validation
-
-* Ensured KPI values are within valid range (0–1)
-* Handled anomalies (e.g., OEE > 1)
-* Created realistic variation across machines
-
----
-
-### 5️⃣ SQL Implementation
-
-* Loaded processed data into MySQL
-* Performed KPI analysis using SQL queries
-* Validated Python results using SQL
-
----
-
-### 6️⃣ Star Schema Design
-
-**Fact Table:**
-
-* fact_production
-
-**Dimension Tables:**
-
-* dim_machine
-* dim_shift
-* dim_date
-* dim_downtime
-* dim_location
-
-This structure improves query performance and supports scalable BI reporting.
-
----
-
-### 7️⃣ Power BI Dashboard
-
-#### Key Features:
-
-* KPI Cards (OEE, Availability, Performance, Quality)
-* OEE by Machine (sorted & dynamic)
-* Machine KPI Breakdown (root cause analysis)
-* Interactive Filters (Machine, Date, Shift, Downtime, Location)
-
----
-
-## 📊 Key Insights
-
-* M4 is the best performing machine with highest OEE
-* M3 shows lowest OEE due to performance issues
-* Downtime is a major contributor to inefficiency
-* Shift-based variation impacts overall performance
-
----
-
-## 🚀 Business Impact
-
-* Helps identify underperforming machines
-* Supports data-driven maintenance planning
-* Improves operational efficiency
-* Enables real-time monitoring through dashboard
-
----
-
-## 📊 Dashboard Preview
-
-[![Dashboard](https://github.com/RajeshSonavale/manufacturing_kpi_analysis/blob/main/dashboard/dashboard.png)](https://github.com/RajeshSonavale/manufacturing_kpi_analysis/blob/main/dashboard/dashboard.png)
-
----
