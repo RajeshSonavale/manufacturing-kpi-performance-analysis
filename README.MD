@@ -86,7 +86,7 @@ Analyzes machine performance, downtime patterns, shift-wise productivity, and op
 
 Presents key business insights and actionable recommendations to improve equipment effectiveness, reduce downtime, and optimize production performance.
 
-![Insights & Recommendations](dashboard/insights_recommendations.png)
+![Insights & Recommendations](dashboard/insights_and_recommendations.png)
 
 ### Dashboard
 
